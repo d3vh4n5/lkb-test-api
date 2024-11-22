@@ -15,7 +15,8 @@ app.get('/', (req, res) => {
 app.get("/externo/blipia", (req, res) => {
   const { solicitud } = req.query;
 
-//   console.log(solicitud)
+  console.log(solicitud)
+  console.log({ req: req.query })
 
   if (!solicitud) return res.status(400).send("ERROR|Parámetros insuficientes");
   
