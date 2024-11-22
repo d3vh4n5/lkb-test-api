@@ -18,7 +18,7 @@ app.get("/externo/blipia", (req, res) => {
   console.log(solicitud)
   console.log({ req: req.query })
 
-  if (!solicitud) return res.status(400).send("ERROR|Parámetros insuficientes");
+  if (!solicitud) return res.status(200).send("ERROR_PETICION");
   
 
   if (solicitud === "peticionblip"){
@@ -36,7 +36,7 @@ app.get("/externo/blipia", (req, res) => {
     const { idregistro, resp, action, valora, horario } =  req.query
 
     if (!idregistro || !resp) {
-        return res.status(400).send("ERROR|Parámetros insuficientes");
+        return res.status(200).send("ERROR_CON_IDREGISTRO|");
     }
 
     return res.send(`OK|${idregistro}`);
