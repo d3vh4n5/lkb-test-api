@@ -1,12 +1,21 @@
+const dotenv = require('dotenv')
+dotenv.config();
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+const cors = require('cors')
+
+app.use(cors())
+
+app.get('/', (req, res) => {
+    return res.send("App funcionando")
+})
 
 // Endpoint 1: /externo/blipia
 app.get("/externo/blipia", (req, res) => {
   const { solicitud } = req.query;
 
-  console.log(solicitud)
+//   console.log(solicitud)
 
   if (!solicitud) return res.status(400).send("ERROR|Parámetros insuficientes");
   
